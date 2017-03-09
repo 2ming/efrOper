@@ -17,9 +17,6 @@ app.use(session(sess))
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-
-
-
 /* 登入 */
 app.post('/op/login', function (req, res){
 	console.log(req.query);
@@ -58,7 +55,7 @@ app.post('/op/styleCategory', function (req, res){
 			'id': 1,
 			'children':[{
 				'name': '外套',
-				'id': 11
+				'id': 11,
 				'children': [{
 					'name': '牛仔外套',
 					'id': 111
@@ -74,7 +71,7 @@ app.post('/op/styleCategory', function (req, res){
 				}]
 			},{
 				'name': '裤子',
-				'id': 12
+				'id': 12,
 				'children': [{
 					'name': '牛仔裤子',
 					'id': 121
@@ -94,7 +91,7 @@ app.post('/op/styleCategory', function (req, res){
 				'id': 2,
 				'children':[{
 					'name': '外套',
-					'id': 21
+					'id': 21,
 					'children': [{
 						'name': '牛仔外套',
 						'id': 211
@@ -110,7 +107,7 @@ app.post('/op/styleCategory', function (req, res){
 					}]
 				},{
 					'name': '裤子',
-					'id': 22
+					'id': 22,
 					'children': [{
 						'name': '牛仔裤子',
 						'id': 221
