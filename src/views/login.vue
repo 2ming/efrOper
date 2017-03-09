@@ -54,9 +54,11 @@ import Login from '@/api/login'
         this.$refs[formName].validate((valid) => {
           if (valid) {
             Login.login(this.ruleForm).then(function(data){
-              debugger;
+              //debugger;
               if(data.data.success){
-                debugger;
+                //debugger;
+                localStorage.setItem('token',true);
+                localStorage.setItem('user',JSON.stringify(data.data.value));
                 thiz.$store.commit(types.LOGIN, data.data.value)
                 let redirect = decodeURIComponent(thiz.$route.query.redirect || '/');
                 thiz.$router.push({

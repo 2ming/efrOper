@@ -22,6 +22,7 @@ Object.keys(filters).forEach(key => {
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(store.state.token)
 
   if(to.path == '/login' && store.state.token){
     next({
