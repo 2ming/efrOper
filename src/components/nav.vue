@@ -2,14 +2,10 @@
   <nav class="nav">
     <div class="l">
       <ul>
-        <router-link tag="li" to="/addstyle"><i class="iconfont icon-accessories"></i>菜单</router-link>
+        <router-link tag="li" to="/addstyle"><i class="iconfont icon-style"></i>首页</router-link>
         <router-link tag="li" to="/test"><i class="iconfont icon-style"></i>测试页面</router-link>
-        <li><i class="iconfont icon-cloth"></i>菜单</li>
-        <li><i class="iconfont icon-supplier"></i>菜单</li>
-        <li><i class="iconfont icon-customer"></i>菜单</li>
-        <li><i class="iconfont icon-sale"></i>菜单</li>
-        <li><i class="iconfont icon-set"></i>菜单</li>
-        <li><i class="iconfont icon-purchaseApply"></i>菜单</li>
+        <router-link tag="li" to="/hello"><i class="iconfont icon-style"></i>关于Vue</router-link>
+
       </ul>
     </div><div class="r">
       <ul>

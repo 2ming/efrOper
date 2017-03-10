@@ -30,6 +30,14 @@ const router = new Router({
       component: (resolve) => require(['../views/addstyle.vue'], resolve)
     },
     {
+      path: '/hello',
+      name: 'hello',
+      meta: {
+          title: '关于VUE'
+      },
+      component: (resolve) => require(['../views/hello.vue'], resolve)
+    },
+    {
       path: '/test',
       name: 'test',
       meta: {

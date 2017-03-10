@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="path != '/login'">
+    <div v-if="path != '/login'" style="height:100%;">
       <m-head></m-head>
       <div class="main">
         <m-nav></m-nav>

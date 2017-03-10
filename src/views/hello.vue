@@ -1,8 +1,5 @@
 <template>
   <div class="hello">
-    <el-row>
-      <el-col :span="24"><div class="grid-content bg-purple-dark">1</div></el-col>
-    </el-row>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
