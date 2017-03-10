@@ -26,13 +26,13 @@ app.post('/op/login', function (req, res){
     msg:'登入成功'
   }
 
-	if(req.body.pass != '123456' || req.body.userName != 'admin'){
+	if(req.body.pass != '123456'){
 		data.success = false;
-		data.msg = '用户名或密码错误'
+		data.msg = '密码错误'
 		//delete req.session.authenticated;
 	}else{
 		data.value = {
-			userName: '王明明'
+			userName: req.body.userName
 		}
 		req.session.authenticated = true;
 	}
