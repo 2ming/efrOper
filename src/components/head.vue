@@ -10,7 +10,7 @@
         <div class="user">
           <ul>
             <li>{{user.userName}}</li>
-            <li>退出</li>
+            <li @click="logOut()">退出</li>
           </ul>
         </div>
       </el-col>
@@ -20,6 +20,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import * as types from '@/store/mutation-types'
 
 export default {
   name: 'header',
@@ -28,6 +29,14 @@ export default {
       token: state => state.token,
       user: state => state.user
     })
+  },
+  methods: {
+    logOut(){
+      this.$store.commit(types.LOGOUT);
+      this.$router.push({
+        path: '/login'
+      })
+    }
   }
 }
 </script>

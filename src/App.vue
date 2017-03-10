@@ -48,6 +48,10 @@ html,body,#app {
 body{
   font-size: 14px;
 }
+a{
+  color: #fff;
+  text-decoration: none;
+}
 .header{
   position: absolute;
   top: 0;

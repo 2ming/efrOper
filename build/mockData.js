@@ -38,7 +38,27 @@ app.post('/op/login', function (req, res){
 	}
 	res.send( JSON.stringify(data) );
 })
-
+app.get('/isLogin', function(req ,res){
+	var sess = req.session
+	var data = {
+		success:true
+	}
+	if(sess.authenticated){
+		data = {
+	    success:true,
+	    msg:'已登入',
+			value: {
+				userName: '王明明'
+			}
+	  }
+	}else{
+		data = {
+	    success:false,
+	    msg:'未登入'
+	  }
+	}
+	res.send( JSON.stringify(data) );
+})
 app.post('/op/styleCategory', function (req, res){
 	var sess = req.session
 	if(!sess.authenticated){

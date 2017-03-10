@@ -1,16 +1,20 @@
 <template lang="html">
-  <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="用户名" prop="userName">
-    <el-input type="text" v-model="ruleForm.userName" auto-complete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="密码" prop="pass">
-    <el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input>
-  </el-form-item>
-  <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-    <el-button @click="resetForm('ruleForm')">重置</el-button>
-  </el-form-item>
-</el-form>
+  <el-row class="page-login">
+    <el-col :span="12" :offset="6">
+      <el-form :label-position="'top'" label-width="80px" :model="ruleForm" :rules="rules" ref="ruleForm">
+        <el-form-item label="用户名" prop="userName">
+          <el-input type="text" placeholder="admin" v-model="ruleForm.userName"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="pass">
+          <el-input type="password" placeholder="123456" v-model="ruleForm.pass"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button class="el-button-block" type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
+  </el-row>
+
 </template>
 
 <script>
@@ -21,21 +25,22 @@ import Login from '@/api/login'
     data() {
       var validatePass = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入用户名'));
+          callback(new Error('请输入密码'));
         }
         callback();
       };
       var userName = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入密码'));
+          callback(new Error('请输入用户名'));
         }
         callback();
       };
       return {
+        labelPosition: 'right',
         //token: '',
         ruleForm: {
-          pass: '',
-          userName: ''
+          pass: '123456',
+          userName: 'admin'
         },
         rules: {
           pass: [
@@ -57,8 +62,6 @@ import Login from '@/api/login'
               //debugger;
               if(data.data.success){
                 //debugger;
-                localStorage.setItem('token',true);
-                localStorage.setItem('user',JSON.stringify(data.data.value));
                 thiz.$store.commit(types.LOGIN, data.data.value)
                 let redirect = decodeURIComponent(thiz.$route.query.redirect || '/');
                 thiz.$router.push({
@@ -82,5 +85,11 @@ import Login from '@/api/login'
   }
 </script>
 
-<style lang="css">
+<style lang="less">
+.el-button-block{
+  width: 100%;
+}
+.page-login{
+  padding: 10%;
+}
 </style>

@@ -2,8 +2,8 @@
   <nav class="nav">
     <div class="l">
       <ul>
-        <li class="active"><i class="iconfont icon-accessories"></i>菜单</li>
-        <li><i class="iconfont icon-style"></i>菜单</li>
+        <router-link tag="li" to="/addstyle"><i class="iconfont icon-accessories"></i>菜单</router-link>
+        <router-link tag="li" to="/test"><i class="iconfont icon-style"></i>测试页面</router-link>
         <li><i class="iconfont icon-cloth"></i>菜单</li>
         <li><i class="iconfont icon-supplier"></i>菜单</li>
         <li><i class="iconfont icon-customer"></i>菜单</li>
@@ -20,9 +20,17 @@
   </nav>
 </template>
 
+
 <script>
+import {mapState } from 'vuex'
+
 export default {
-  name: 'nav'
+  name: 'nav',
+  computed: {
+    ...mapState({
+      path: state => state.route.path
+    })
+  },
 }
 </script>
 <style lang="less">
@@ -42,7 +50,8 @@ export default {
     li{
       height: 78px;
       padding-top: 10px;
-      &.active{
+      cursor: pointer;
+      &.router-link-active{
         background: #d63e5a;
         position: relative;
         &:after{

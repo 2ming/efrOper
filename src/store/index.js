@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        user: {},
+        user: null,
         token: false,
         title: '',
         isLoading: false
@@ -15,12 +15,15 @@ export default new Vuex.Store({
         [types.LOGIN]: (state, data) => {
             state.token = true;
             state.user = data;
-            console.log(data)
+            localStorage.setItem('token',true);
+            localStorage.setItem('user',JSON.stringify(data));
 
         },
         [types.LOGOUT]: (state) => {
             localStorage.removeItem('token');
-            state.token = null
+            localStorage.removeItem('user');
+            state.token = false
+            state.user = null;
         },
         [types.TITLE]: (state, data) => {
             state.title = data;

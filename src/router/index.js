@@ -28,7 +28,15 @@ const router = new Router({
           requireAuth: true
       },
       component: (resolve) => require(['../views/addstyle.vue'], resolve)
-
+    },
+    {
+      path: '/test',
+      name: 'test',
+      meta: {
+          title: '测试页面',
+          requireAuth: true
+      },
+      component: (resolve) => require(['../views/test.vue'], resolve)
     },
     {
       path: '/',
