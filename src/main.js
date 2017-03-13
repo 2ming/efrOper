@@ -23,8 +23,8 @@ Object.keys(filters).forEach(key => {
 
 router.beforeEach((to, from, next) => {
   console.log(store.state.token)
-  axios.get('/isLogin').then(function(data){
-    console.log(data)
+  setTimeout(() => {
+    
   })
 
   if(to.path == '/login' && store.state.token){

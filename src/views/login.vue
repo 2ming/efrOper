@@ -58,16 +58,16 @@ import Login from '@/api/login'
       var thiz = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            Login.login(this.ruleForm).then(function(data){
+            setTimeout(() => {
               //debugger;
-              if(data.data.success){
+              //if(data.data.success){
                 //debugger;
-                thiz.$store.commit(types.LOGIN, data.data.value)
+                thiz.$store.commit(types.LOGIN, {userName:'admin'})
                 let redirect = decodeURIComponent(thiz.$route.query.redirect || '/');
                 thiz.$router.push({
                   path: redirect
                 })
-              }
+              //}
             })
           } else {
             console.log('error submit!!');
@@ -76,8 +76,8 @@ import Login from '@/api/login'
         });
       },
       resetForm(formName) {
-        this.axios.post('/op/info').then(function(data){
-          console.log(data)
+        setTimeout(() => {
+
         })
         //this.$refs[formName].resetFields();
       }
