@@ -1,6 +1,6 @@
 # efroper
 
-> A Vue.js project
+index:[https://2ming.github.io/efrOper/](https://2ming.github.io/efrOper/)
 
 ## Build Setup
 
